@@ -1,0 +1,23 @@
+{
+  "flintlock_loading_end": { "sounds":["blackpowder:flintlock_loading_end"], "subtitle": "blackpowder.subtitle.flintlock_loading_end" },
+  "flintlock_loading_middle": { "sounds":["blackpowder:flintlock_loading_middle"], "subtitle": "blackpowder.subtitle.flintlock_loading_middle" },
+  "flintlock_loading_start": { "sounds":["blackpowder:flintlock_loading_start"]},
+  "flintlock_shoot": { "sounds":["blackpowder:flintlock_shoot"], "subtitle": "blackpowder.subtitle.flintlock_shoot" },
+
+  "blunderbuss_loading_end": { "sounds":["blackpowder:blunderbuss_loading_end"], "subtitle": "blackpowder.subtitle.blunderbuss_loading_end" },
+  "blunderbuss_loading_middle": { "sounds":["blackpowder:blunderbuss_loading_middle"], "subtitle": "blackpowder.subtitle.blunderbuss_loading_middle" },
+  "blunderbuss_loading_start": { "sounds":["blackpowder:blunderbuss_loading_start"]},
+  "blunderbuss_shoot": { "sounds":["blackpowder:blunderbuss_shoot"], "subtitle": "blackpowder.subtitle.blunderbuss_shoot" },
+
+  "musket_loading_end": { "sounds":["blackpowder:musket_loading_end"], "subtitle": "blackpowder.subtitle.musket_loading_end" },
+  "musket_loading_middle": { "sounds":["blackpowder:musket_loading_middle"], "subtitle": "blackpowder.subtitle.musket_loading_middle" },
+  "musket_loading_start": { "sounds":["blackpowder:musket_loading_start"]},
+  "musket_shoot": { "sounds":["blackpowder:musket_shoot"], "subtitle": "blackpowder.subtitle.musket_shoot" },
+
+  "rifle_loading_end": { "sounds":["blackpowder:rifle_loading_end"], "subtitle": "blackpowder.subtitle.rifle_loading_end" },
+  "rifle_loading_middle": { "sounds":["blackpowder:rifle_loading_middle"], "subtitle": "blackpowder.subtitle.rifle_loading_middle" },
+  "rifle_loading_start": { "sounds":["blackpowder:rifle_loading_start"]},
+  "rifle_shoot": { "sounds":["blackpowder:rifle_shoot"], "subtitle": "blackpowder.subtitle.rifle_shoot" },
+
+  "bullet_impact": { "sounds":["blackpowder:bullet_impact"], "subtitle": "blackpowder.subtitle.bullet_impact" }
+}

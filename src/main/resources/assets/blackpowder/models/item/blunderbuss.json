@@ -1,0 +1,20 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "blackpowder:item/blunderbuss"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"charged": 0
+			},
+			"model": "blackpowder:item/blunderbuss_unloaded"
+		},
+		{
+			"predicate": {
+				"charged": 1
+			},
+			"model": "blackpowder:item/blunderbuss_loaded"
+		}
+	]
+}

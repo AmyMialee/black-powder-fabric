@@ -1,0 +1,20 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "blackpowder:item/rifle"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"charged": 0
+			},
+			"model": "blackpowder:item/rifle_unloaded"
+		},
+		{
+			"predicate": {
+				"charged": 1
+			},
+			"model": "blackpowder:item/rifle_loaded"
+		}
+	]
+}
