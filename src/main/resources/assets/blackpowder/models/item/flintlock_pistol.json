@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "blackpowder:item/flintlock_pistol"
+		"layer0": "blackpowder:item/flintlock"
 	},
 	"overrides": [
 		{

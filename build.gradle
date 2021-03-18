@@ -10,6 +10,13 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+repositories {
+    mavenCentral()
+    maven {
+        url = "https://dl.bintray.com/oroarmor/oroarmor"
+    }
+}
+
 dependencies {
     //to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -21,6 +28,10 @@ dependencies {
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
+    modCompile('com.oroarmor:Multi-Item-Lib:1.2.0') {
+        exclude(module: "fabric-api")
+        exclude(module: "fabric-loader")
+    }
 }
 
 processResources {
