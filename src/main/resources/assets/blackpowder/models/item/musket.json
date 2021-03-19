@@ -1,20 +1,20 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "blackpowder:item/musket"
+		"layer0": "blackpowder:item/stock/musket"
 	},
 	"overrides": [
 		{
 			"predicate": {
 				"charged": 0
 			},
-			"model": "blackpowder:item/musket_unloaded"
+			"model": "blackpowder:item/stock/musket_unloaded"
 		},
 		{
 			"predicate": {
 				"charged": 1
 			},
-			"model": "blackpowder:item/musket_loaded"
+			"model": "blackpowder:item/stock/musket_loaded"
 		}
 	]
 }

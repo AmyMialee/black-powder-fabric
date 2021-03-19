@@ -1,10 +1,10 @@
 package amymialee.blackpowder.guns;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
 
 public class BulletItem extends ArrowItem {
@@ -12,10 +12,9 @@ public class BulletItem extends ArrowItem {
         super(settings);
     }
 
-    public PersistentProjectileEntity createBullet(World world, ItemStack stack, LivingEntity shooter) {
-        System.out.println("T");
-        BulletEntity bulletEntity = new BulletEntity(world, shooter);
-        bulletEntity.initFromStack(stack);
+    public PersistentProjectileEntity createBullet(World world, ItemStack stack, LivingEntity shooter, double damage, int punch, SoundEvent sound) {
+        BulletEntity bulletEntity = new BulletEntity(world, shooter, damage, punch, sound);
         return bulletEntity;
     }
+
 }

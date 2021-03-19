@@ -1,9 +1,13 @@
 {
   "item.blackpowder.blunderbuss": "Blunderbuss",
-  "item.blackpowder.blunderbehemoth": "Blunderbehemoth",
   "item.blackpowder.flintlock_pistol" : "Flintlock Pistol",
   "item.blackpowder.rifle" : "Rifle",
   "item.blackpowder.musket" : "Musket",
+
+  "item.blackpowder.flintlock_carbine": "Flintlock Carbine",
+  "item.blackpowder.blunderbehemoth": "Blunderbehemoth",
+  "item.blackpowder.resolute_rifle": "Resolute Rifle",
+  "item.blackpowder.boundless_musket": "Boundless Musket",
 
   "item.blackpowder.blunder_ball" : "Blunder Ball",
   "item.blackpowder.musket_ball" : "Musket Ball",

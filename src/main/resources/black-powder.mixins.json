@@ -4,6 +4,7 @@
   "package": "amymialee.blackpowder.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ArrowEntityRendererMixin",
     "PlayerEntityRendererMixin"
   ],
   "client": [

@@ -24,7 +24,13 @@ public class BlackPowderClient implements ClientModInitializer {
         FabricModelPredicateProviderRegistry.register(BlackPowderItems.MUSKET, new Identifier("charged"), (gun_musket_0, gun_musket_1, gun_musket_2)
                 -> gun_musket_2 != null && GunItem.isCharged(gun_musket_0) ? 1.0F : 0.0F);
 
-        FabricModelPredicateProviderRegistry.register(BlackPowderItems.BLUNDERBEHEMOTH, new Identifier("charged"), (gun_blunderbehemoth_0, gun_blunderbehemoth_1, gun_blunderbehemoth_2)
-                -> gun_blunderbehemoth_2 != null && GunItem.isCharged(gun_blunderbehemoth_0) ? 1.0F : 0.0F);
+        FabricModelPredicateProviderRegistry.register(BlackPowderItems.FLINTLOCK_CARBINE, new Identifier("charged"), (gun_flintlock_0, gun_flintlock_1, gun_flintlock_2)
+                -> gun_flintlock_2 != null && GunItem.isCharged(gun_flintlock_0) ? 1.0F : 0.0F);
+        FabricModelPredicateProviderRegistry.register(BlackPowderItems.BLUNDERBEHEMOTH, new Identifier("charged"), (gun_blunderbuss_0, gun_blunderbuss_1, gun_blunderbuss_2)
+                -> gun_blunderbuss_2 != null && GunItem.isCharged(gun_blunderbuss_0) ? 1.0F : 0.0F);
+        FabricModelPredicateProviderRegistry.register(BlackPowderItems.RESOLUTE_RIFLE, new Identifier("charged"), (gun_rifle_0, gun_rifle_1, gun_rifle_2)
+                -> gun_rifle_2 != null && GunItem.isCharged(gun_rifle_0) ? 1.0F : 0.0F);
+        FabricModelPredicateProviderRegistry.register(BlackPowderItems.BOUNDLESS_MUSKET, new Identifier("charged"), (gun_musket_0, gun_musket_1, gun_musket_2)
+                -> gun_musket_2 != null && GunItem.isCharged(gun_musket_0) ? 1.0F : 0.0F);
     }
 }

@@ -8,13 +8,13 @@
 			"predicate": {
 				"charged": 0
 			},
-			"model": "blackpowder:item/blunderbuss_unloaded"
+			"model": "blackpowder:item/stock/blunderbuss_unloaded"
 		},
 		{
 			"predicate": {
 				"charged": 1
 			},
-			"model": "blackpowder:item/blunderbuss_loaded"
+			"model": "blackpowder:item/stock/blunderbuss_loaded"
 		}
 	]
 }
