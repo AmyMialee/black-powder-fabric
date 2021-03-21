@@ -12,9 +12,7 @@ public class BulletItem extends ArrowItem {
         super(settings);
     }
 
-    public PersistentProjectileEntity createBullet(World world, ItemStack stack, LivingEntity shooter, double damage, int punch, SoundEvent sound) {
-        BulletEntity bulletEntity = new BulletEntity(world, shooter, damage, punch, sound);
-        return bulletEntity;
+    public PersistentProjectileEntity createBullet(World world, ItemStack stack, LivingEntity shooter, double damage, int punch, SoundEvent sound, String damageType) {
+        return new BulletEntity(world, shooter, damage, punch, sound, damageType);
     }
-
 }

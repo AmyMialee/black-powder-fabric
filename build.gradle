@@ -32,6 +32,16 @@ dependencies {
         exclude(module: "fabric-api")
         exclude(module: "fabric-loader")
     }
+
+    modImplementation ('com.oroarmor:Multi-Item-Lib:1.2.0') {
+        exclude(module: "modmenu")
+        exclude(module: "fabric-api")
+    }
+
+    include ('com.oroarmor:Multi-Item-Lib:1.2.0') {
+        exclude(module: "modmenu")
+        exclude(module: "fabric-api")
+    }
 }
 
 processResources {

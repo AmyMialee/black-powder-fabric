@@ -5,7 +5,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.ProjectileEntityRenderer;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)

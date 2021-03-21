@@ -1,34 +1,32 @@
 {
+  "block.blackpowder.target_lamp" : "Target Lamp",
   "item.blackpowder.blunderbuss": "Blunderbuss",
   "item.blackpowder.flintlock_pistol" : "Flintlock Pistol",
   "item.blackpowder.rifle" : "Rifle",
   "item.blackpowder.musket" : "Musket",
-
   "item.blackpowder.flintlock_carbine": "Flintlock Carbine",
   "item.blackpowder.blunderbehemoth": "Blunderbehemoth",
   "item.blackpowder.resolute_rifle": "Resolute Rifle",
   "item.blackpowder.boundless_musket": "Boundless Musket",
-
   "item.blackpowder.blunder_ball" : "Blunder Ball",
   "item.blackpowder.musket_ball" : "Musket Ball",
+
+  "death.attack.bullet" : "%1$s was felled by %2$s",
+  "death.attack.shotgun_bullet" : "%1$s was decimated by %2$s",
+  "death.attack.pierce_bullet" : "%1$s was executed by %2$s",
+  "death.attack.strong_bullet" : "%1$s was destroyed by %2$s",
 
   "blackpowder.subtitle.flintlock_loading_end" : "Flintlock reloaded",
   "blackpowder.subtitle.flintlock_loading_middle" : "Flintlock loads",
   "blackpowder.subtitle.flintlock_shoot" : "Flintlock fires",
-
   "blackpowder.subtitle.blunderbuss_loading_end" : "Blunderbuss reloaded",
   "blackpowder.subtitle.blunderbuss_loading_middle" : "Blunderbuss loads",
   "blackpowder.subtitle.blunderbuss_shoot" : "Blunderbuss fires",
-
   "blackpowder.subtitle.musket_loading_end" : "Musket reloaded",
   "blackpowder.subtitle.musket_loading_middle" : "Musket loads",
   "blackpowder.subtitle.musket_shoot" : "Musket fires",
-
   "blackpowder.subtitle.rifle_loading_end" : "Rifle reloaded",
   "blackpowder.subtitle.rifle_loading_middle" : "Rifle loads",
   "blackpowder.subtitle.rifle_shoot" : "Rifle fires",
-
   "blackpowder.subtitle.bullet_impact" : "Bullet hits"
-
-
 }

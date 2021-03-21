@@ -52,8 +52,10 @@ public class GunItem extends CrossbowItem {
     public Item ammo;
     public int damage;
     public int piercing;
+    public String damageType;
 
-    public GunItem(int bulletCount, float inaccuracy, int chargeTime, int quickChargeChange, SoundEvent[] soundEvents, float velocity, Item ammo, int damage, int piercing) {
+    public GunItem(int bulletCount, float inaccuracy, int chargeTime, int quickChargeChange, SoundEvent[] soundEvents,
+                   float velocity, Item ammo, int damage, int piercing, String damageType) {
         super(new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1).fireproof());
         this.bulletCount = bulletCount;
         this.inaccuracy = inaccuracy;
@@ -68,6 +70,7 @@ public class GunItem extends CrossbowItem {
         this.ammo = ammo;
         this.damage = damage;
         this.piercing = piercing;
+        this.damageType = damageType;
     }
 
     public static int getChargeTime(GunItem item) {
@@ -99,10 +102,6 @@ public class GunItem extends CrossbowItem {
 
     public Predicate<ItemStack> getProjectiles() {
         return (stack) -> stack.getItem() == ammo;
-    }
-
-    public Item getAmmo() {
-        return ammo;
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -258,7 +257,8 @@ public class GunItem extends CrossbowItem {
     private static PersistentProjectileEntity createBullet(World world, LivingEntity entity, ItemStack gun, ItemStack bullet) {
         PersistentProjectileEntity persistentProjectileEntity = null;
         if (bullet.getItem() instanceof BulletItem) {
-            persistentProjectileEntity = ((BulletItem) bullet.getItem()).createBullet(world, bullet, entity, ((GunItem)gun.getItem()).damage, 0, ((GunItem)gun.getItem()).HIT);
+            persistentProjectileEntity = ((BulletItem) bullet.getItem()).createBullet(world, bullet, entity,
+                    ((GunItem)gun.getItem()).damage, 0, ((GunItem)gun.getItem()).HIT, ((GunItem)gun.getItem()).damageType);
         }
         if (entity instanceof PlayerEntity && persistentProjectileEntity != null) {
             persistentProjectileEntity.setCritical(true);

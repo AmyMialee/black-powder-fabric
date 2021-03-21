@@ -1,5 +1,6 @@
-package amymialee.blackpowder;
+package amymialee.blackpowder.guns;
 
+import amymialee.blackpowder.BlackPowder;
 import amymialee.blackpowder.guns.BulletItem;
 import amymialee.blackpowder.guns.GunItem;
 import amymialee.blackpowder.guns.GunSoundEvents;
@@ -11,7 +12,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class BlackPowderItems {
+public class BlackPowderGuns {
     static SoundEvent[] blunderbussSounds = {
             GunSoundEvents.ITEM_BLUNDERBUSS_PISTOL_LOADING_START,
             GunSoundEvents.ITEM_BLUNDERBUSS_PISTOL_LOADING_MIDDLE,
@@ -45,30 +46,30 @@ public class BlackPowderItems {
     public static Item BLUNDER_BALL = new BulletItem(new FabricItemSettings().group(ItemGroup.COMBAT));
 
 
-    public static Item FLINTLOCK_PISTOL = new GunItem(1, 7, 50, 8,
-            flintlockSounds, 12F, MUSKET_BALL, 16, 0);
+    public static Item FLINTLOCK_PISTOL = new GunItem(1, 7, 50, 5,
+            flintlockSounds, 12F, MUSKET_BALL, 16, 0, "bullet");
 
-    public static Item BLUNDERBUSS = new GunItem(8, 14, 160, 25,
-            blunderbussSounds, 8F, BLUNDER_BALL, 4, 0);
+    public static Item BLUNDERBUSS = new GunItem(8, 14, 160, 20,
+            blunderbussSounds, 8F, BLUNDER_BALL, 4, 0, "shotgun_bullet");
 
-    public static Item RIFLE = new GunItem(1, 2, 160, 30,
-            rifleSounds, 22F, MUSKET_BALL, 22, 0);
+    public static Item RIFLE = new GunItem(1, 2, 160, 20,
+            rifleSounds, 22F, MUSKET_BALL, 22, 0, "pierce_bullet");
 
-    public static Item MUSKET = new GunItem(1, 4, 100, 15,
-            musketSounds, 16F, MUSKET_BALL, 26, 0);
+    public static Item MUSKET = new GunItem(1, 4, 100, 10,
+            musketSounds, 16F, MUSKET_BALL, 26, 0, "strong_bullet");
 
 
     public static Item FLINTLOCK_CARBINE = new GunItem(1, 7, 3, 1,
-            flintlockSounds, 12F, MUSKET_BALL, 12, 0);
+            flintlockSounds, 12F, MUSKET_BALL, 12, 0, "bullet");
 
-    public static Item BLUNDERBEHEMOTH = new GunItem(800, 28, 480, 120,
-            blunderbussSounds, 8F, BLUNDER_BALL, 4, 0);
+    public static Item BLUNDERBEHEMOTH = new GunItem(800, 28, 320, 40,
+            blunderbussSounds, 8F, BLUNDER_BALL, 4, 0, "shotgun_bullet");
 
-    public static Item RESOLUTE_RIFLE = new GunItem(1, 0, 160, 30,
-            rifleSounds, 198F, MUSKET_BALL, 22, 50);
+    public static Item RESOLUTE_RIFLE = new GunItem(1, 0, 240, 40,
+            rifleSounds, 198F, MUSKET_BALL, 22, 100, "pierce_bullet");
 
-    public static Item BOUNDLESS_MUSKET = new GunItem(1, 4, 200, 45,
-            musketSounds, 16F, MUSKET_BALL, 124, 0);
+    public static Item BOUNDLESS_MUSKET = new GunItem(1, 4, 200, 20,
+            musketSounds, 16F, MUSKET_BALL, 318, 0, "strong_bullet");
 
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(BlackPowder.MODID, "musket_ball"), MUSKET_BALL);

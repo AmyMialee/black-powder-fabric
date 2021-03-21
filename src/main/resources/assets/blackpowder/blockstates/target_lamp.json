@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "blackpowder:block/target_lamp"
+    },
+    "lit=true": {
+      "model": "blackpowder:block/target_lamp_on"
+    }
+  }
+}

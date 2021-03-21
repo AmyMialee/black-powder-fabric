@@ -5,6 +5,9 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "ArrowEntityRendererMixin",
+    "LivingEntityMixin",
+    "PersistentProjectileEntityMixin",
+    "PlayerEntityMixin",
     "PlayerEntityRendererMixin"
   ],
   "client": [
