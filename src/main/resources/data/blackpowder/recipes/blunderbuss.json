@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FBI",
+    "G  "
+  ],
+  "key": {
+    "F": {
+      "item": "blackpowder:firing_mechanism"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "blackpowder:grip"
+    },
+    "B": {
+      "item": "blackpowder:barrel"
+    }
+  },
+  "result": {
+    "item": "blackpowder:blunderbuss"
+  }
+}

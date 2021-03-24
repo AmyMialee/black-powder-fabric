@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "JI",
+    "I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "J": {
+      "item": "minecraft:flint_and_steel"
+    }
+  },
+  "result": {
+    "item": "blackpowder:firing_mechanism"
+  }
+}

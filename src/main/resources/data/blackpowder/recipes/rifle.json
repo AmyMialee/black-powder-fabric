@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FRR",
+    "G  "
+  ],
+  "key": {
+    "F": {
+      "item": "blackpowder:firing_mechanism"
+    },
+    "G": {
+      "item": "blackpowder:grip"
+    },
+    "R": {
+      "item": "blackpowder:rifled_barrel"
+    }
+  },
+  "result": {
+    "item": "blackpowder:rifle"
+  }
+}

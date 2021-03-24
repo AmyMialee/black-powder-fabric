@@ -58,7 +58,7 @@ public class TargetLampBlock extends Block {
             boolean bl = state.get(LIT);
             if (bl != world.isReceivingRedstonePower(pos)) {
                 if (bl) {
-                    world.getBlockTickScheduler().schedule(pos, this, 4);
+                    world.getBlockTickScheduler().schedule(pos, this, 8);
                 } else {
                     world.setBlockState(pos, state.cycle(LIT), 2);
                 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FI",
+    "G "
+  ],
+  "key": {
+    "F": {
+      "item": "blackpowder:firing_mechanism"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "blackpowder:grip"
+    }
+  },
+  "result": {
+    "item": "blackpowder:flintlock_pistol"
+  }
+}

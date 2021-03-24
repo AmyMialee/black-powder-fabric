@@ -20,7 +20,6 @@ public class BulletDamageSource extends ProjectileDamageSource {
     public static DamageSource pierce_bullet(PersistentProjectileEntity projectile, @Nullable Entity attacker) {
         return (new BulletDamageSource("pierce_bullet", projectile, attacker)).setProjectile().setUsesMagic();
     }
-
     public static DamageSource strong_bullet(PersistentProjectileEntity projectile, @Nullable Entity attacker) {
         return (new BulletDamageSource("strong_bullet", projectile, attacker)).setProjectile();
     }

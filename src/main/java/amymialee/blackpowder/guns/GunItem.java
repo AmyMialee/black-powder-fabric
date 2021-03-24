@@ -1,5 +1,7 @@
 package amymialee.blackpowder.guns;
 
+import amymialee.blackpowder.BlackPowder;
+import amymialee.blackpowder.items.BulletItem;
 import com.google.common.collect.Lists;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -9,8 +11,8 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.CrossbowUser;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.*;
@@ -29,6 +31,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Quaternion;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -303,8 +306,17 @@ public class GunItem extends CrossbowItem {
                 }
             }
         }
-
         postShoot(world, entity, stack);
+        Random random = new Random();
+        if (BlackPowder.config.funMode && random.nextInt(1001) == 1000) {
+            List<Entity> nearbyEntities = world.getOtherEntities(null, new Box(entity.getX() - 1000, entity.getY() - 1000, entity.getZ() - 1000,
+                    entity.getX() + 1000, entity.getY() + 1000, entity.getZ() + 1000));
+            for (Entity entity2 : nearbyEntities) {
+                if (entity2 instanceof PlayerEntity) {
+                    entity2.damage(DamageSource.explosion(entity), 5000);
+                }
+            }
+        }
     }
 
     private static float[] getSoundPitches(Random random) {

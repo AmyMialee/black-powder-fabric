@@ -1,5 +1,6 @@
-package amymialee.blackpowder.guns;
+package amymialee.blackpowder.items;
 
+import amymialee.blackpowder.guns.BulletEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;

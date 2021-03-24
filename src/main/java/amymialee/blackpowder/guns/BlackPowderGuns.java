@@ -1,16 +1,14 @@
 package amymialee.blackpowder.guns;
 
 import amymialee.blackpowder.BlackPowder;
-import amymialee.blackpowder.guns.BulletItem;
-import amymialee.blackpowder.guns.GunItem;
-import amymialee.blackpowder.guns.GunSoundEvents;
 import com.oroarmor.multi_item_lib.UniqueItemRegistry;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
+import static amymialee.blackpowder.items.BlackPowderItems.*;
+import static amymialee.blackpowder.BlackPowder.*;
 
 public class BlackPowderGuns {
     static SoundEvent[] blunderbussSounds = {
@@ -42,21 +40,17 @@ public class BlackPowderGuns {
             GunSoundEvents.ENTITY_BULLET_IMPACT
     };
 
-    public static Item MUSKET_BALL = new BulletItem(new FabricItemSettings().group(ItemGroup.COMBAT));
-    public static Item BLUNDER_BALL = new BulletItem(new FabricItemSettings().group(ItemGroup.COMBAT));
+    public static Item FLINTLOCK_PISTOL = new GunItem(1, config.FlintlockInaccuracy, config.FlintlockReloadTime, config.FlintlockQuickChargeTime,
+            flintlockSounds, 12F, MUSKET_BALL, config.FlintlockDamage, 0, "bullet");
 
+    public static Item BLUNDERBUSS = new GunItem(8, config.BlunderbussInaccuracy, config.BlunderbussReloadTime, config.BlunderbussQuickChargeTime,
+            blunderbussSounds, 8F, BLUNDER_BALL, config.BlunderbussDamage, 0, "shotgun_bullet");
 
-    public static Item FLINTLOCK_PISTOL = new GunItem(1, 7, 50, 5,
-            flintlockSounds, 12F, MUSKET_BALL, 16, 0, "bullet");
+    public static Item RIFLE = new GunItem(1, config.RifleInaccuracy, config.RifleReloadTime, config.RifleQuickChargeTime,
+            rifleSounds, 22F, MUSKET_BALL, config.RifleDamage, 0, "pierce_bullet");
 
-    public static Item BLUNDERBUSS = new GunItem(8, 14, 160, 20,
-            blunderbussSounds, 8F, BLUNDER_BALL, 4, 0, "shotgun_bullet");
-
-    public static Item RIFLE = new GunItem(1, 2, 160, 20,
-            rifleSounds, 22F, MUSKET_BALL, 22, 0, "pierce_bullet");
-
-    public static Item MUSKET = new GunItem(1, 4, 100, 10,
-            musketSounds, 16F, MUSKET_BALL, 26, 0, "strong_bullet");
+    public static Item MUSKET = new GunItem(1, config.MusketInaccuracy, config.MusketReloadTime, config.MusketQuickChargeTime,
+            musketSounds, 16F, MUSKET_BALL, config.MusketDamage, 0, "strong_bullet");
 
 
     public static Item FLINTLOCK_CARBINE = new GunItem(1, 7, 3, 1,
@@ -72,9 +66,6 @@ public class BlackPowderGuns {
             musketSounds, 16F, MUSKET_BALL, 318, 0, "strong_bullet");
 
     public static void register() {
-        Registry.register(Registry.ITEM, new Identifier(BlackPowder.MODID, "musket_ball"), MUSKET_BALL);
-        Registry.register(Registry.ITEM, new Identifier(BlackPowder.MODID, "blunder_ball"), BLUNDER_BALL);
-
         Registry.register(Registry.ITEM, new Identifier(BlackPowder.MODID, "flintlock_pistol"), FLINTLOCK_PISTOL);
         Registry.register(Registry.ITEM, new Identifier(BlackPowder.MODID, "blunderbuss"), BLUNDERBUSS);
         Registry.register(Registry.ITEM, new Identifier(BlackPowder.MODID, "rifle"), RIFLE);
