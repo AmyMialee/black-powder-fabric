@@ -51,24 +51,20 @@ public class BulletEntity extends ArrowEntity {
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
-        super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         if (this.getPierceLevel() > 0) {
             if (this.piercedEntities == null) {
                 this.piercedEntities = new IntOpenHashSet(5);
             }
-
             if (this.piercingKilledEntities == null) {
                 this.piercingKilledEntities = Lists.newArrayListWithCapacity(5);
             }
-
             if (this.piercedEntities.size() >= this.getPierceLevel() + 1) {
                 this.remove();
                 return;
             }
             this.piercedEntities.add(entity.getEntityId());
         }
-
         Entity entity2 = this.getOwner();
         DamageSource damageSource2 = null;
         if (entity2 == null) {
@@ -111,7 +107,10 @@ public class BulletEntity extends ArrowEntity {
         if (this.isOnFire() && !bl) {
             entity.setOnFireFor(5);
         }
-
+        if (entity instanceof LivingEntity) {
+            entity.timeUntilRegen = 0;
+            ((LivingEntity) entity).hurtTime = 0;
+        }
         if (entity.damage(damageSource2, (float) damage)) {
             if (bl) {
                 return;
@@ -119,10 +118,6 @@ public class BulletEntity extends ArrowEntity {
 
             if (entity instanceof LivingEntity) {
                 LivingEntity livingEntity = (LivingEntity) entity;
-                if (!this.world.isClient && this.getPierceLevel() <= 0) {
-                    livingEntity.setStuckArrowCount(livingEntity.getStuckArrowCount() + 1);
-                }
-
                 if (this.punch > 0) {
                     Vec3d vec3d = this.getVelocity().multiply(1.0D, 0.0D, 1.0D).normalize().multiply((double) this.punch * 0.6D);
                     if (vec3d.lengthSquared() > 0.0D) {

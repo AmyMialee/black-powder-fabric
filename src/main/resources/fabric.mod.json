@@ -3,13 +3,16 @@
   "id": "black-powder",
   "version": "${version}",
   "name": "Black Powder",
-  "description": "",
+  "description": "A stockpile of Forceful Flintlocks!",
   "authors": [
     "AmyMialee"
   ],
-  "contact": {},
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/black-powder",
+    "issues": "https://discord.gg/P4dUsxv6An"
+  },
   "license": "GPL-3.0",
-  "icon": "assets/black-powder/icon.png",
+  "icon": "assets/blackpowder/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -23,8 +26,20 @@
     "black-powder.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": "*",
     "fabric": "*",
-    "minecraft": "1.16.5"
+    "minecraft": ">=1.16.2"
+  },
+  "custom": {
+    "modupdater": {
+      "strategy": "curseforge",
+      "projectID": 454299,
+      "strict": false
+    },
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/P4dUsxv6An"
+      }
+    }
   }
 }
