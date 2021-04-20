@@ -53,17 +53,17 @@ public class BlackPowderGuns {
             musketSounds, 16F, MUSKET_BALL, config.MusketDamage, 0, "strong_bullet");
 
 
-    public static Item FLINTLOCK_CARBINE = new GunItem(1, 7, 3, 1,
-            flintlockSounds, 12F, MUSKET_BALL, 12, 0, "bullet");
+    public static Item FLINTLOCK_CARBINE = new GunItem(1, config.FlintlockCarbineInaccuracy, config.FlintlockCarbineReloadTime, config.FlintlockCarbineQuickChargeTime,
+            flintlockSounds, 12F, MUSKET_BALL, config.FlintlockCarbineDamage, 0, "bullet");
 
-    public static Item BLUNDERBEHEMOTH = new GunItem(800, 28, 320, 40,
-            blunderbussSounds, 8F, BLUNDER_BALL, 4, 0, "shotgun_bullet");
+    public static Item BLUNDERBEHEMOTH = new GunItem(800, config.BlunderbehemothInaccuracy, config.BlunderbehemothReloadTime, config.BlunderbehemothQuickChargeTime,
+            blunderbussSounds, 8F, BLUNDER_BALL, config.BlunderbehemothDamage, 0, "shotgun_bullet");
 
-    public static Item RESOLUTE_RIFLE = new GunItem(1, 0, 240, 40,
-            rifleSounds, 198F, MUSKET_BALL, 22, 100, "pierce_bullet");
+    public static Item RESOLUTE_RIFLE = new GunItem(1, config.ResoluteRifleInaccuracy, config.ResoluteRifleReloadTime, config.ResoluteRifleQuickChargeTime,
+            rifleSounds, 198F, MUSKET_BALL, config.ResoluteRifleDamage, 100, "pierce_bullet");
 
-    public static Item BOUNDLESS_MUSKET = new GunItem(1, 4, 200, 20,
-            musketSounds, 16F, MUSKET_BALL, 318, 0, "strong_bullet");
+    public static Item BOUNDLESS_MUSKET = new GunItem(1, config.BoundlessMusketInaccuracy, config.BoundlessMusketReloadTime, config.BoundlessMusketQuickChargeTime,
+            musketSounds, 16F, MUSKET_BALL, config.BoundlessMusketDamage, 0, "strong_bullet");
 
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(BlackPowder.MODID, "flintlock_pistol"), FLINTLOCK_PISTOL);

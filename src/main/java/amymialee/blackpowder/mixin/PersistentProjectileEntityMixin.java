@@ -13,6 +13,10 @@ public class PersistentProjectileEntityMixin {
     @Shadow private double damage;
     @Redirect(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))
     public boolean redirectDamage(Entity entity, DamageSource source, float amount) {
-        return entity.damage(source, (float) damage);
+        if (source.name.contains("bullet")) {
+            return entity.damage(source, (float) damage);
+        } else {
+            return entity.damage(source, amount);
+        }
     }
 }

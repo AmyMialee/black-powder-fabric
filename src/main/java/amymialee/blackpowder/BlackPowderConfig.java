@@ -21,5 +21,23 @@ public class BlackPowderConfig implements ConfigData {
     public int MusketReloadTime = 100;
     public int MusketQuickChargeTime = 10;
     public float MusketInaccuracy = 4;
+
+    public int FlintlockCarbineDamage = 12;
+    public int FlintlockCarbineReloadTime = 3;
+    public int FlintlockCarbineQuickChargeTime = 1;
+    public float FlintlockCarbineInaccuracy = 7;
+    public int BlunderbehemothDamage = 4;
+    public int BlunderbehemothReloadTime = 320;
+    public int BlunderbehemothQuickChargeTime = 40;
+    public float BlunderbehemothInaccuracy = 28;
+    public int ResoluteRifleDamage = 22;
+    public int ResoluteRifleReloadTime = 240;
+    public int ResoluteRifleQuickChargeTime = 40;
+    public float ResoluteRifleInaccuracy = 0;
+    public int BoundlessMusketDamage = 318;
+    public int BoundlessMusketReloadTime = 200;
+    public int BoundlessMusketQuickChargeTime = 20;
+    public float BoundlessMusketInaccuracy = 4;
+
     public boolean funMode = false;
 }
