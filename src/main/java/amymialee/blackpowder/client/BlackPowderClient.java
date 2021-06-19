@@ -16,22 +16,22 @@ public class BlackPowderClient implements ClientModInitializer {
     }
 
     static {
-        FabricModelPredicateProviderRegistry.register(FLINTLOCK_PISTOL, new Identifier("charged"), (gun_flintlock_0, gun_flintlock_1, gun_flintlock_2)
+        FabricModelPredicateProviderRegistry.register(FLINTLOCK_PISTOL, new Identifier("charged"), (gun_flintlock_0, gun_flintlock_1, gun_flintlock_2, gun_flintlock_3)
                 -> gun_flintlock_2 != null && GunItem.isCharged(gun_flintlock_0) ? 1.0F : 0.0F);
-        FabricModelPredicateProviderRegistry.register(BLUNDERBUSS, new Identifier("charged"), (gun_blunderbuss_0, gun_blunderbuss_1, gun_blunderbuss_2)
+        FabricModelPredicateProviderRegistry.register(BLUNDERBUSS, new Identifier("charged"), (gun_blunderbuss_0, gun_blunderbuss_1, gun_blunderbuss_2, gun_blunderbuss_3)
                 -> gun_blunderbuss_2 != null && GunItem.isCharged(gun_blunderbuss_0) ? 1.0F : 0.0F);
-        FabricModelPredicateProviderRegistry.register(RIFLE, new Identifier("charged"), (gun_rifle_0, gun_rifle_1, gun_rifle_2)
+        FabricModelPredicateProviderRegistry.register(RIFLE, new Identifier("charged"), (gun_rifle_0, gun_rifle_1, gun_rifle_2, gun_rifle_3)
                 -> gun_rifle_2 != null && GunItem.isCharged(gun_rifle_0) ? 1.0F : 0.0F);
-        FabricModelPredicateProviderRegistry.register(MUSKET, new Identifier("charged"), (gun_musket_0, gun_musket_1, gun_musket_2)
+        FabricModelPredicateProviderRegistry.register(MUSKET, new Identifier("charged"), (gun_musket_0, gun_musket_1, gun_musket_2, gun_musket_3)
                 -> gun_musket_2 != null && GunItem.isCharged(gun_musket_0) ? 1.0F : 0.0F);
 
-        FabricModelPredicateProviderRegistry.register(FLINTLOCK_CARBINE, new Identifier("charged"), (gun_flintlock_0, gun_flintlock_1, gun_flintlock_2)
+        FabricModelPredicateProviderRegistry.register(FLINTLOCK_CARBINE, new Identifier("charged"), (gun_flintlock_0, gun_flintlock_1, gun_flintlock_2, gun_flintlock_3)
                 -> gun_flintlock_2 != null && GunItem.isCharged(gun_flintlock_0) ? 1.0F : 0.0F);
-        FabricModelPredicateProviderRegistry.register(BLUNDERBEHEMOTH, new Identifier("charged"), (gun_blunderbuss_0, gun_blunderbuss_1, gun_blunderbuss_2)
+        FabricModelPredicateProviderRegistry.register(BLUNDERBEHEMOTH, new Identifier("charged"), (gun_blunderbuss_0, gun_blunderbuss_1, gun_blunderbuss_2, gun_blunderbuss_3)
                 -> gun_blunderbuss_2 != null && GunItem.isCharged(gun_blunderbuss_0) ? 1.0F : 0.0F);
-        FabricModelPredicateProviderRegistry.register(RESOLUTE_RIFLE, new Identifier("charged"), (gun_rifle_0, gun_rifle_1, gun_rifle_2)
+        FabricModelPredicateProviderRegistry.register(RESOLUTE_RIFLE, new Identifier("charged"), (gun_rifle_0, gun_rifle_1, gun_rifle_2, gun_rifle_3)
                 -> gun_rifle_2 != null && GunItem.isCharged(gun_rifle_0) ? 1.0F : 0.0F);
-        FabricModelPredicateProviderRegistry.register(BOUNDLESS_MUSKET, new Identifier("charged"), (gun_musket_0, gun_musket_1, gun_musket_2)
+        FabricModelPredicateProviderRegistry.register(BOUNDLESS_MUSKET, new Identifier("charged"), (gun_musket_0, gun_musket_1, gun_musket_2, gun_musket_3)
                 -> gun_musket_2 != null && GunItem.isCharged(gun_musket_0) ? 1.0F : 0.0F);
     }
 }

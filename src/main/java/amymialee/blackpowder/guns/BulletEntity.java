@@ -39,7 +39,7 @@ public class BulletEntity extends ArrowEntity {
     public void tick() {
         super.tick();
         if (this.inGround) {
-            this.destroy();
+            this.discard();
         }
     }
 
@@ -60,10 +60,11 @@ public class BulletEntity extends ArrowEntity {
                 this.piercingKilledEntities = Lists.newArrayListWithCapacity(5);
             }
             if (this.piercedEntities.size() >= this.getPierceLevel() + 1) {
-                this.remove();
+                this.discard();
                 return;
             }
-            this.piercedEntities.add(entity.getEntityId());
+            this.piercedEntities.add(entity.getId());
+
         }
         Entity entity2 = this.getOwner();
         DamageSource damageSource2 = null;
@@ -151,19 +152,19 @@ public class BulletEntity extends ArrowEntity {
 
             this.playSound(this.sound, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
             if (this.getPierceLevel() <= 0) {
-                this.remove();
+                this.discard();
             }
         } else {
             entity.setFireTicks(j);
             this.setVelocity(this.getVelocity().multiply(-0.1D));
-            this.yaw += 180.0F;
+            this.setYaw(this.getYaw() + 180.0F);
             this.prevYaw += 180.0F;
             if (!this.world.isClient && this.getVelocity().lengthSquared() < 1.0E-7D) {
                 if (this.pickupType == PersistentProjectileEntity.PickupPermission.ALLOWED) {
                     this.dropStack(this.asItemStack(), 0.1F);
                 }
 
-                this.remove();
+                this.discard();
             }
         }
     }

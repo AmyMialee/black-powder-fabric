@@ -8,16 +8,17 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.*;
+import net.minecraft.entity.CrossbowUser;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.*;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -34,6 +35,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Quaternion;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -132,7 +134,7 @@ public class GunItem extends CrossbowItem {
         if (f >= 1.0F && !isCharged(stack) && loadProjectiles(user, stack)) {
             setCharged(stack, true);
             SoundCategory soundCategory = user instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
-            world.playSound(null, user.getX(), user.getY(), user.getZ(), END, soundCategory, 1.0F, 1.0F / (RANDOM.nextFloat() * 0.5F + 1.0F) + 0.2F);
+            world.playSound(null, user.getX(), user.getY(), user.getZ(), END, soundCategory, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
         }
 
     }
@@ -140,7 +142,7 @@ public class GunItem extends CrossbowItem {
     private static boolean loadProjectiles(LivingEntity shooter, ItemStack projectile) {
         int i = EnchantmentHelper.getLevel(Enchantments.MULTISHOT, projectile);
         int j = i == 0 ? 1 : 3;
-        boolean bl = shooter instanceof PlayerEntity && ((PlayerEntity)shooter).abilities.creativeMode;
+        boolean bl = shooter instanceof PlayerEntity && ((PlayerEntity)shooter).getAbilities().creativeMode;
         ItemStack itemStack = shooter.getArrowType(projectile);
         ItemStack itemStack2 = itemStack.copy();
         for(int k = 0; k < j; ++k) {
@@ -170,7 +172,7 @@ public class GunItem extends CrossbowItem {
             if (!bl && !creative && !simulated) {
                 itemStack2 = projectile.split(1);
                 if (projectile.isEmpty() && shooter instanceof PlayerEntity) {
-                    ((PlayerEntity)shooter).inventory.removeOne(projectile);
+                    ((PlayerEntity)shooter).getInventory().removeOne(projectile);
                 }
             } else {
                 itemStack2 = projectile.copy();
@@ -182,39 +184,39 @@ public class GunItem extends CrossbowItem {
     }
 
     public static boolean isCharged(ItemStack stack) {
-        CompoundTag compoundTag = stack.getTag();
+        NbtCompound compoundTag = stack.getTag();
         return compoundTag != null && compoundTag.getBoolean("Charged");
     }
 
     public static void setCharged(ItemStack stack, boolean charged) {
-        CompoundTag compoundTag = stack.getOrCreateTag();
+        NbtCompound compoundTag = stack.getOrCreateTag();
         compoundTag.putBoolean("Charged", charged);
     }
 
     private static void putProjectile(ItemStack gun, ItemStack projectile) {
-        CompoundTag compoundTag = gun.getOrCreateTag();
-        ListTag listTag2;
+        NbtCompound compoundTag = gun.getOrCreateTag();
+        NbtList listTag2;
         if (compoundTag.contains("ChargedProjectiles", 9)) {
             listTag2 = compoundTag.getList("ChargedProjectiles", 10);
         } else {
-            listTag2 = new ListTag();
+            listTag2 = new NbtList();
         }
 
-        CompoundTag compoundTag2 = new CompoundTag();
-        projectile.toTag(compoundTag2);
+        NbtCompound compoundTag2 = new NbtCompound();
+        projectile.writeNbt(compoundTag2);
         listTag2.add(compoundTag2);
         compoundTag.put("ChargedProjectiles", listTag2);
     }
 
     private static List<ItemStack> getProjectiles(ItemStack gun) {
         List<ItemStack> list = Lists.newArrayList();
-        CompoundTag compoundTag = gun.getTag();
+        NbtCompound compoundTag = gun.getTag();
         if (compoundTag != null && compoundTag.contains("ChargedProjectiles", 9)) {
-            ListTag listTag = compoundTag.getList("ChargedProjectiles", 10);
+            NbtList listTag = compoundTag.getList("ChargedProjectiles", 10);
             if (listTag != null) {
                 for(int i = 0; i < listTag.size(); ++i) {
-                    CompoundTag compoundTag2 = listTag.getCompound(i);
-                    list.add(ItemStack.fromTag(compoundTag2));
+                    NbtCompound compoundTag2 = listTag.getCompound(i);
+                    list.add(ItemStack.fromNbt(compoundTag2));
                 }
             }
         }
@@ -223,9 +225,9 @@ public class GunItem extends CrossbowItem {
     }
 
     private static void clearProjectiles(ItemStack gun) {
-        CompoundTag compoundTag = gun.getTag();
+        NbtCompound compoundTag = gun.getTag();
         if (compoundTag != null) {
-            ListTag listTag = compoundTag.getList("ChargedProjectiles", 9);
+            NbtList listTag = compoundTag.getList("ChargedProjectiles", 9);
             listTag.clear();
             compoundTag.put("ChargedProjectiles", listTag);
         }
@@ -243,13 +245,12 @@ public class GunItem extends CrossbowItem {
                         crossbowUser.shoot(crossbowUser.getTarget(), gun, projectileEntity2, simulated);
                     } else {
                         Vec3d vec3d = shooter.getOppositeRotationVector(1.0F);
-                        Quaternion quaternion = new Quaternion(new Vector3f(vec3d), simulated, true);
+                        Quaternion quaternion = new Quaternion(new Vec3f(vec3d), simulated, true);
                         Vec3d vec3d2 = shooter.getRotationVec(1.0F);
-                        Vector3f vector3f = new Vector3f(vec3d2);
+                        Vec3f vector3f = new Vec3f(vec3d2);
                         vector3f.rotate(quaternion);
                         projectileEntity2.setVelocity(vector3f.getX(), vector3f.getY(), vector3f.getZ(), speed, divergence);
                     }
-
                     world.spawnEntity(projectileEntity2);
                 }
             }
@@ -260,7 +261,7 @@ public class GunItem extends CrossbowItem {
     private static PersistentProjectileEntity createBullet(World world, LivingEntity entity, ItemStack gun, ItemStack bullet) {
         PersistentProjectileEntity persistentProjectileEntity = null;
         if (bullet.getItem() instanceof BulletItem) {
-            persistentProjectileEntity = ((BulletItem) bullet.getItem()).createBullet(world, bullet, entity,
+            persistentProjectileEntity = ((BulletItem) bullet.getItem()).createBullet(world, entity,
                     ((GunItem)gun.getItem()).damage, 0, ((GunItem)gun.getItem()).HIT, ((GunItem)gun.getItem()).damageType);
         }
         if (entity instanceof PlayerEntity && persistentProjectileEntity != null) {
@@ -321,12 +322,12 @@ public class GunItem extends CrossbowItem {
 
     private static float[] getSoundPitches(Random random) {
         boolean bl = random.nextBoolean();
-        return new float[]{1.0F, getSoundPitch(bl), getSoundPitch(!bl)};
+        return new float[]{1.0F, getSoundPitch(random, bl), getSoundPitch(random, !bl)};
     }
 
-    private static float getSoundPitch(boolean flag) {
+    private static float getSoundPitch(Random random, boolean flag) {
         float f = flag ? 0.63F : 0.43F;
-        return 1.0F / (RANDOM.nextFloat() * 0.5F + 1.8F) + f;
+        return 1.0F / (random.nextFloat() * 0.5F + 1.8F) + f;
     }
 
     private static void postShoot(World world, LivingEntity entity, ItemStack stack) {
