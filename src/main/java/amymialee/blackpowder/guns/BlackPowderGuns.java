@@ -1,7 +1,7 @@
 package amymialee.blackpowder.guns;
 
 import amymialee.blackpowder.BlackPowder;
-import com.oroarmor.multi_item_lib.UniqueItemRegistry;
+import com.oroarmor.multiitemlib.api.UniqueItemRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;

@@ -184,17 +184,17 @@ public class GunItem extends CrossbowItem {
     }
 
     public static boolean isCharged(ItemStack stack) {
-        NbtCompound compoundTag = stack.getTag();
+        NbtCompound compoundTag = stack.getNbt();
         return compoundTag != null && compoundTag.getBoolean("Charged");
     }
 
     public static void setCharged(ItemStack stack, boolean charged) {
-        NbtCompound compoundTag = stack.getOrCreateTag();
+        NbtCompound compoundTag = stack.getOrCreateNbt();
         compoundTag.putBoolean("Charged", charged);
     }
 
     private static void putProjectile(ItemStack gun, ItemStack projectile) {
-        NbtCompound compoundTag = gun.getOrCreateTag();
+        NbtCompound compoundTag = gun.getOrCreateNbt();
         NbtList listTag2;
         if (compoundTag.contains("ChargedProjectiles", 9)) {
             listTag2 = compoundTag.getList("ChargedProjectiles", 10);
@@ -210,7 +210,7 @@ public class GunItem extends CrossbowItem {
 
     private static List<ItemStack> getProjectiles(ItemStack gun) {
         List<ItemStack> list = Lists.newArrayList();
-        NbtCompound compoundTag = gun.getTag();
+        NbtCompound compoundTag = gun.getNbt();
         if (compoundTag != null && compoundTag.contains("ChargedProjectiles", 9)) {
             NbtList listTag = compoundTag.getList("ChargedProjectiles", 10);
             if (listTag != null) {
@@ -225,7 +225,7 @@ public class GunItem extends CrossbowItem {
     }
 
     private static void clearProjectiles(ItemStack gun) {
-        NbtCompound compoundTag = gun.getTag();
+        NbtCompound compoundTag = gun.getNbt();
         if (compoundTag != null) {
             NbtList listTag = compoundTag.getList("ChargedProjectiles", 9);
             listTag.clear();

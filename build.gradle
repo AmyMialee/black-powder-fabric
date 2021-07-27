@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.9.10'
+    id 'fabric-loom' version '0.8-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -24,16 +24,17 @@ dependencies {
     modImplementation ("net.fabricmc:fabric-loader:${project.loader_version}")
     modImplementation ("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
 
-    modImplementation ('com.oroarmor:Multi-Item-Lib:1.4.0') {
-        exclude(module: "modmenu")
-        exclude(module: "fabric-api")
+    modApi("me.shedaniel.cloth:cloth-config-fabric:5.0.34") {
+        exclude(group: "net.fabricmc.fabric-api")
     }
-    include ('com.oroarmor:Multi-Item-Lib:1.4.0') {
+    modApi("com.oroarmor:Multi-Item-Lib:1.4.0") {
         exclude(module: "modmenu")
-        exclude(module: "fabric-api")
+        exclude(group: "net.fabricmc.fabric-api")
     }
-    modImplementation ("me.shedaniel.cloth:cloth-config-fabric:5.0.34")
-    include ("me.shedaniel.cloth:cloth-config-fabric:5.0.34")
+    include("com.oroarmor:Multi-Item-Lib:1.4.0") {
+        exclude(module: "modmenu")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 }
 
 processResources {

@@ -14,6 +14,5 @@ public class HeldItemRendererMixin {
     @Redirect(method = "getHandRenderType", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
     private static boolean getHandRenderType(ItemStack stack, Item item, ClientPlayerEntity player) {
         return UniqueItemRegistry.BOW.isItemInRegistry(stack.getItem()) || UniqueItemRegistry.CROSSBOW.isItemInRegistry(stack.getItem());
-
-    }
+    }BucketItem
 }

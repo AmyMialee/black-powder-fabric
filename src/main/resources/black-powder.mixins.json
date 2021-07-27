@@ -5,8 +5,6 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "ArrowEntityRendererMixin",
-    "HeldItemRendererMixin",
-    "ItemRendererMixin",
     "LivingEntityMixin",
     "PersistentProjectileEntityMixin",
     "PlayerEntityMixin",
