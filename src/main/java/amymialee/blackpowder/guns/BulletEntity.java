@@ -29,10 +29,10 @@ public class BulletEntity extends ArrowEntity {
 
     public BulletEntity(World world, LivingEntity owner, double damage, int punch, SoundEvent sound, String damageType) {
         super(world, owner);
+        this.setAir(500);
         this.damage = damage;
         this.punch = punch;
         this.sound = sound;
-        this.setAir(500);
         this.damageType = damageType;
     }
 
@@ -70,34 +70,19 @@ public class BulletEntity extends ArrowEntity {
         DamageSource damageSource2 = null;
         if (entity2 == null) {
             switch (damageType) {
-                case "bullet":
-                    damageSource2 = BulletDamageSource.bullet(this, this);
-                    break;
-                case "shotgun_bullet":
-                    damageSource2 = BulletDamageSource.shotgun_bullet(this, this);
-                    break;
-                case "pierce_bullet":
-                    damageSource2 = BulletDamageSource.pierce_bullet(this, this);
-                    break;
-                case "strong_bullet":
-                    damageSource2 = BulletDamageSource.strong_bullet(this, this);
-                    break;
+                case "bullet" -> damageSource2 = BulletDamageSource.bullet(this, this);
+                case "shotgun_bullet" -> damageSource2 = BulletDamageSource.shotgun_bullet(this, this);
+                case "pierce_bullet" -> damageSource2 = BulletDamageSource.pierce_bullet(this, this);
+                case "strong_bullet" -> damageSource2 = BulletDamageSource.strong_bullet(this, this);
             }
         } else {
-            switch (damageType) {
-                case "bullet":
-                    damageSource2 = BulletDamageSource.bullet(this, entity2);
-                    break;
-                case "shotgun_bullet":
-                    damageSource2 = BulletDamageSource.shotgun_bullet(this, entity2);
-                    break;
-                case "pierce_bullet":
-                    damageSource2 = BulletDamageSource.pierce_bullet(this, entity2);
-                    break;
-                case "strong_bullet":
-                    damageSource2 = BulletDamageSource.strong_bullet(this, entity2);
-                    break;
-            }
+            damageSource2 = switch (damageType) {
+                case "bullet" -> BulletDamageSource.bullet(this, entity2);
+                case "shotgun_bullet" -> BulletDamageSource.shotgun_bullet(this, entity2);
+                case "pierce_bullet" -> BulletDamageSource.pierce_bullet(this, entity2);
+                case "strong_bullet" -> BulletDamageSource.strong_bullet(this, entity2);
+                default -> damageSource2;
+            };
             if (entity2 instanceof LivingEntity) {
                 ((LivingEntity) entity2).onAttacking(entity);
             }
