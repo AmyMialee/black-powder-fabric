@@ -1,44 +1,34 @@
 {
   "schemaVersion": 1,
-  "id": "black-powder",
+  "id": "blackpowder",
   "version": "${version}",
   "name": "Black Powder",
   "description": "A stockpile of Forceful Flintlocks!",
   "authors": [
     "AmyMialee"
   ],
-  "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/black-powder",
-    "issues": "https://discord.gg/P4dUsxv6An"
-  },
-  "license": "GPL-3.0",
+  "contact": {},
+  "license": "All-Rights-Reserved",
   "icon": "assets/blackpowder/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "amymialee.blackpowder.client.BlackPowderClient"
+      "xyz.amymialee.blackpowder.BlackPowderClient"
     ],
     "main": [
-      "amymialee.blackpowder.BlackPowder"
+      "xyz.amymialee.blackpowder.BlackPowder"
     ]
   },
   "mixins": [
-    "black-powder.mixins.json"
+    "blackpowder.mixins.json"
   ],
   "depends": {
-    "fabricloader": "*",
-    "fabric": "*",
-    "minecraft": ">=1.16.2"
+    "fabric": "*"
   },
   "custom": {
-    "modupdater": {
-      "strategy": "curseforge",
-      "projectID": 454299,
-      "strict": false
-    },
     "modmenu": {
       "links": {
-        "modmenu.discord": "https://discord.gg/P4dUsxv6An"
+        "modmenu.discord": "http://discord.amymialee.xyz"
       }
     }
   }

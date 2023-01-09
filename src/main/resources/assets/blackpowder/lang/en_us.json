@@ -1,5 +1,6 @@
 {
-  "block.blackpowder.target_lamp" : "Target Lamp",
+  "itemGroup.blackpowder.blackpowder_group" : "Black Powder",
+
   "item.blackpowder.blunderbuss": "Blunderbuss",
   "item.blackpowder.flintlock_pistol" : "Flintlock Pistol",
   "item.blackpowder.rifle" : "Rifle",
@@ -15,14 +16,18 @@
   "item.blackpowder.barrel" : "Barrel",
   "item.blackpowder.rifled_barrel" : "Rifled Barrel",
 
-  "death.attack.bullet" : "%1$s was felled by %2$s",
-  "death.attack.shotgun_bullet" : "%1$s was decimated by %2$s",
-  "death.attack.pierce_bullet" : "%1$s was executed by %2$s",
-  "death.attack.strong_bullet" : "%1$s was destroyed by %2$s",
-  "death.attack.bullet.item" : "%1$s was felled by %2$s using %3$s",
-  "death.attack.shotgun_bullet.item" : "%1$s was decimated by %2$s using %3$s",
-  "death.attack.pierce_bullet.item" : "%1$s was executed by %2$s using %3$s",
-  "death.attack.strong_bullet.item" : "%1$s was destroyed by %2$s using %3$s",
+  "death.attack.flintlock" : "%1$s was felled by %2$s",
+  "death.attack.blunderbuss" : "%1$s was decimated by %2$s",
+  "death.attack.rifle" : "%1$s was executed by %2$s",
+  "death.attack.musket" : "%1$s was destroyed by %2$s",
+  "death.attack.flintlock.item" : "%1$s was felled by %2$s using %3$s",
+  "death.attack.blunderbuss.item" : "%1$s was decimated by %2$s using %3$s",
+  "death.attack.rifle.item" : "%1$s was executed by %2$s using %3$s",
+  "death.attack.musket.item" : "%1$s was destroyed by %2$s using %3$s",
+
+  "item.gunitem.tooltip1" : "Shoot with Left Click",
+  "item.gunitem.tooltip2" : "Reload with Right Click",
+  "item.gunitem.tooltip3" : "Scope with Shift Right Click",
 
   "blackpowder.subtitle.flintlock_loading_end" : "Flintlock reloaded",
   "blackpowder.subtitle.flintlock_loading_middle" : "Flintlock loads",
